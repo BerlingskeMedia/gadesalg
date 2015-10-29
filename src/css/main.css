@@ -1,0 +1,61 @@
+
+/*
+.ui-block-a .ui-input-text,
+.ui-block-b .ui-input-text,
+.ui-block-c .ui-input-text,
+.ui-block-d .ui-input-text {
+	padding-right: .2em;
+}
+*/
+/*
+.ui-grid-c .ui-block-a,
+.ui-grid-c .ui-block-b,
+.ui-grid-c .ui-block-c,
+.ui-grid-c .ui-block-d {
+	width: 23%;
+	padding-right: .9em;
+}
+
+.ui-grid-a .ui-block-a,
+.ui-grid-a .ui-block-b {
+	width: 48%;
+	padding-right: .6em;
+}
+*/
+
+
+.ui-form-error {
+	-moz-box-shadow: 0 0 12px #c80000;
+	-webkit-box-shadow: 0 0 12px #c80000;
+	box-shadow: 0 0 12px #c80000;
+}
+
+#messages {
+	border: 1px solid #ccc;
+	background-color: #ddd;
+	
+	width: 95%;
+
+	padding: 20px;
+	margin-top: 12px;
+	margin-left: auto;
+	margin-right: auto;
+
+	-moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -khtml-border-radius: 8px;
+    border-radius: 8px;
+}
+
+.geoInfo {
+	color: #e0d772;
+	font-size: 0.5em;
+	margin: -2px;
+}
+
+.bm_logo {
+	margin: 14px 0px 14px 20px;
+	width: 250px;
+	height: 50px;
+	background-image: url('../img/bm_logo.png')
+}

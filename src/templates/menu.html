@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<title>%TITLE%</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.css" />
+	<link rel="stylesheet" href="css/mobipick.css" />
+	<link rel="stylesheet" href="css/main.css" />
+%CSS%
+<!-- Libs -->
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+	<script type="text/javascript" src="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.js"></script>
+	<script type="text/javascript" src="js/xdate.js"></script>
+	<script type="text/javascript" src="js/xdate.i18n.js"></script>
+	<script type="text/javascript" src="js/mobipick.js"></script>
+	<script type="text/javascript" src="js/validators.js"></script>
+<!-- Pages -->
+	<script type="text/javascript" src="js/main.js"></script>
+	<script type="text/javascript" src="js/login.js"></script>
+	<script type="text/javascript" src="js/order.js"></script>
+	<script type="text/javascript" src="js/geo.js"></script>
+%JS%
+</head>
+<body>
+<div id="page" data-role="page">
+	<div data-role="header">
+		<div style="margin-top: 0.3em; margin-left:auto;margin-right:auto;width:70%; height: 2em;text-align: center; font-family: arial, sans-serif;">
+			<span style="font-size: 0.7em; color: #ccc;">mobile<span style="font-size: 1.7em; color: #fff;">InGa</span></span>
+			<div class="geoInfo">(Ukendt lokation)</div>
+		</div>
+		<!-- <a href="index.php?q=settings" data-icon="gear" class="ui-btn-right">Indstillinger</a> -->
+	</div><!-- /header -->
+
+	<div class="bm_logo"></div>
+	<div data-role="content">
+		%CONTENT%
+	</div><!-- /content -->
+
+</div><!-- /page -->
+</body>
+</html>
