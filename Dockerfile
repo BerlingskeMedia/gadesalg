@@ -7,7 +7,7 @@ RUN apt-get update --fix-missing
 RUN apt-get install -y libpq-dev php5-pgsql
 RUN docker-php-ext-install pdo_pgsql
 
-# Copying the code into image. Be aware no config files are including.
+# Copying the code into image. Be aware no config variables are included.
 COPY ./src /var/www/html/
 
 # Exposing our endpoint to Docker.
