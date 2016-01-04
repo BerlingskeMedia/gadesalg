@@ -234,11 +234,9 @@ function order_store_page()
 	*/
 	if(Core::get()->writeRecord("orders", $o, true)) {
 		echo ':)';
-		header('Location: index.php?q=order_saved_dialog');
 		return;
 	}
 	echo ':(';
-	header('Location: index.php?q=order_not_saved_dialog');
 	return;
 /*
 $_REQUEST[''];

@@ -5,7 +5,7 @@
 */
 function utils_init()
 {
-
+	date_default_timezone_set("Europe/Copenhagen");
 }
 
 function utils_date_dmy_to_unix($date) {
@@ -267,4 +267,3 @@ function utils_countries() {
 
 	return $c;
 }
-
