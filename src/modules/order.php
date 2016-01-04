@@ -13,7 +13,7 @@ function order_init()
 
 	$url = new Url("order_saved_dialog", "order_saved_dialog_page");
 	Core::get()->addUrl($url);
-	
+
 	$url = new Url("order_not_saved_dialog", "order_not_saved_dialog_page");
 	Core::get()->addUrl($url);
 
@@ -24,7 +24,7 @@ function order_init()
 function order_new_page()
 {
 	Core::get()->setActiveTemplate("app");
-	
+
 	$coutries = utils_countries();
 	$country_select = '<select name="country" id="country">';
 	foreach($coutries as $key => $val) {
@@ -46,7 +46,7 @@ function order_new_page()
 	$pos_select =  order_make_select('pos_id','pos_info');
 
 	$max_start_date = date('Y-m-d',strtotime('+3 months'));
-	
+
 	$output = '
 		<form id="send_order" data-ajax="false" action="index.php?q=order_store" method="post">
 
@@ -57,7 +57,7 @@ function order_new_page()
 			<input type="text" name="lastname" id="lastname" value="" placeholder="Efternavn *" />
 		<!-- Address -->
 			<input type="text" name="street" value="" placeholder="Vej *" />
-			
+
 			<div class="ui-grid-c">
 				<div class="ui-block-a">
 					<input type="text" name="house_number" value="" placeholder="Husnummer *" />
@@ -72,7 +72,7 @@ function order_new_page()
 					<input type="text" name="side" value="" placeholder="Side/Dør" />
 				</div>
 			</div>
-			
+
 			<div class="ui-grid-a">
 				<div class="ui-block-a">
 					<input id="zip_input" type="text" name="zip" value="" placeholder="Postnummer *" />
@@ -83,7 +83,7 @@ function order_new_page()
 			</div>
 
 			<div class="ui-grid-a">
-				
+
 				<div class="ui-block-a">
 					'.$country_select.'
 				</div>
@@ -113,7 +113,7 @@ function order_new_page()
 					</div>
 				</div>
 				<div class="ui-block-b">
-					
+
 				</div>
 			</div>
 
@@ -130,7 +130,7 @@ function order_new_page()
 				</div>
 				-->
 			</div>
-			
+
 			<!-- Removed
 			<label for="campaign">Kampagne</label>
 			'.$campaign_select.'
@@ -194,7 +194,7 @@ function order_new_page()
 			<button id="submit_form_button" type="submit" data-theme="a">Gem</button>
 		</form>
 	';
-	
+
 	return $output;
 }
 
@@ -203,7 +203,7 @@ function order_store_page()
 	$schema = order_schema();
 
 	$missing = '';
-	
+
 	$o = new stdClass();
 	foreach($schema['orders']['fields'] as $field => $values) {
 		if(isset($_REQUEST[$field])) {
@@ -234,9 +234,11 @@ function order_store_page()
 	*/
 	if(Core::get()->writeRecord("orders", $o, true)) {
 		echo ':)';
+		header('Location: index.php?q=order_saved_dialog');
 		return;
 	}
 	echo ':(';
+	header('Location: index.php?q=order_not_saved_dialog');
 	return;
 /*
 $_REQUEST[''];
@@ -272,7 +274,7 @@ $_REQUEST[''];
 	knr
 	extra
 */
-	
+
 
 	/*
 	$r = true;
