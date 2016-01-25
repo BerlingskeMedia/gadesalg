@@ -13,9 +13,9 @@ $(document).ready(function()
 		start_date.mobipick({
 			date: new Date(),
 			dateFormat: "dd-MM-yyyy"
-		});		
+		});
 	});
-	
+
 	$('#page').live( "pageinit", function()
 	{
 		console.log("requesting callback");
@@ -26,8 +26,8 @@ $(document).ready(function()
 				console.log("changing pos select: " + pos.id);
 				$("#pos_id").val(pos.id);
 				$("#pos_id").selectmenu("refresh");
-			}	
-		});	
+			}
+		});
 	});
 
 	$('#send_order').live('submit', function (e) {
@@ -50,7 +50,7 @@ $(document).ready(function()
 					//$.mobile.changePage("index.php?q=menu", "slide");
 					console.log(data);
 				}
-				
+
 			});
 		} else {
 			$('html, body').animate({
@@ -60,12 +60,12 @@ $(document).ready(function()
 
 		return false;
 	});
-	
+
 	$('#zip_input').live('blur', function(e)
 	{
 		var pnum = $('#zip_input').val();
 		console.log("Looking up pnum " + pnum);
-		
+
 		$.ajax({
   			url: 'index.php?q=mingapi_lookup_zip',
   			dataType: 'json',
@@ -106,7 +106,7 @@ $(document).ready(function()
 			has_errors = true;
 		}
 
-		
+
 		// Validate content of these fields
 		v = $('[name="house_number"]').val();
 		v = isValidInt(v.toString());
@@ -123,7 +123,7 @@ $(document).ready(function()
 				has_errors = true;
 			}
 		}
-		
+
 		v = $('[name="phone"]').val();
 		if(!isEmpty(v)) {
 			v = isValidPhone(v.toString());
@@ -141,7 +141,7 @@ $(document).ready(function()
 				has_errors = true;
 			}
 		}
-		
+
 		v = $('[name="start_date"]').val();
 		v = isValidDate(v.toString());
 		if(!v) {
@@ -157,7 +157,9 @@ $(document).ready(function()
 		}
 
 		v = $('[name="zip"]').val();
-		v = isValidZip(v.toString());
+		if ($('[name="country"]').val() === 'Denmark') {
+			v = isValidZip(v.toString());
+		}
 		if(!v) {
 			set_error('zip');
 			has_errors = true;
@@ -209,7 +211,7 @@ $(document).ready(function()
 			$('[name="payment_type_id"]').parent().addClass('ui-form-error');
 			has_errors = true;
 		}
-		
+
 		return !has_errors;
 	}
 
