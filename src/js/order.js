@@ -159,6 +159,8 @@ $(document).ready(function()
 		v = $('[name="zip"]').val();
 		if ($('[name="country"]').val() === 'Denmark') {
 			v = isValidZip(v.toString());
+		} else {
+			v = !isEmpty(v.toString());
 		}
 		if(!v) {
 			set_error('zip');
