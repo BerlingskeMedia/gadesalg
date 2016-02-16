@@ -101,21 +101,6 @@ function order_new_page()
 				</div>
 			</div>
 			<input type="text" name="email" value="" placeholder="E-Mail" />
-			<div data-role="fieldcontain">
-				<label for="permission">Email permission *</label>
-				<input data-inline="true" type="checkbox" id="permission" name="permission" class="custom" />
-			</div>
-
-			<div class="ui-grid-a" style="margin-top: -10px;">
-				<div class="ui-block-a">
-					<div style="font-size: 0.8em;">
-						* Ja tak, Berlingske Media må gerne kontakte mig via e-post (e-mail, sms, mms, videobeskeder mv.) når Berlingske Media eller Berlingske Medias samarbejdspartnere har tilbud på aviser, magasiner, rejser, oplevelser, sportsudstyr, bil og båd, tøj og mode, fødevarer, bolig, elektronik, finans, forsikring, job og uddannelse, samt aktiviteter, arrangmenter, konkurrencer og events.
-					</div>
-				</div>
-				<div class="ui-block-b">
-
-				</div>
-			</div>
 
 			<h2>Ordredata:</h2>
 			<div class="ui-grid-a">
@@ -221,8 +206,6 @@ function order_store_page()
 	$o->sold_date_ts = utils_date_dmy_to_unix($_REQUEST['sold_date']);
 	$o->start_date_ts = utils_date_dmy_to_unix($_REQUEST['start_date']);
 
-	$o->permission = isset($_REQUEST['permission']) ? 1 : 0;
-
 	$user = Core::get()->getLoggedInUser();
 	$o->salesman_id = $user->id;
 
@@ -268,7 +251,6 @@ $_REQUEST[''];
 	start_date
 	pos
 	salesman
-	permission
 	ssn
 	reg
 	knr
@@ -391,12 +373,6 @@ function order_schema() {
 				'not null' => TRUE,
 				'default' => 0,
 				'size' => '10,2',
-			),
-			'permission' => array(
-				'type' => 'int',
-				'unsigned' => TRUE,
-				'not null' => TRUE,
-				'default' => 0,
 			),
 			'extra' => array(
 				'type' => 'text',
