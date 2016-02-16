@@ -8,7 +8,7 @@ docker build -t berlingskemedia/gadesalg .
 docker push berlingskemedia/gadesalg
 ```
 
-Start new instans using:
+Start new instance using:
 
 ```
 docker run \
