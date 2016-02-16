@@ -211,7 +211,6 @@ function order_store_page()
 
 	$o->created_ts = time();
 
-	$o->extra .= "\r\nOprettet via ny URL.";
 	/*
 	echo "<pre>";
 	print_r($o);
