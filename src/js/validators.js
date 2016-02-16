@@ -53,6 +53,32 @@ function isValidRangeInt(str, min_size, max_size) {
 	return isValid(str,regex);
 }
 
+function isValidSsn (str) {
+	if (str.length === 8) {
+		var cvr_check = "2765432";
+		return mod11(str, cvr_check);
+	} else if (str.length === 10) {
+		var cpr_check = "432765432";
+		return mod11(str, cpr_check);
+	} else {
+		return false;
+	}
+}
+
+
+// From http://kode.porten.dk/cpr_fix/
+function mod11 (value, check) {
+	var sum = 0;
+
+	for(var i = 0; i < value.length - 1; i++) {
+		sum += parseInt(value.charAt(i), 10) * parseInt(check.charAt(i), 10);
+	}
+
+	var check_digit = 11 - sum % 11;
+	var valid = check_digit === parseInt(value.charAt(value.length - 1), 10);
+	return valid;
+}
+
 /*
 
 

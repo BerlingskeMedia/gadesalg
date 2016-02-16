@@ -183,7 +183,7 @@ $(document).ready(function()
 
 		v = $('[name="ssn"]').val();
 		if(!isEmpty(v)) {
-			v = isValidPreciseInt(v.toString(),10);
+			v = isValidSsn(v.toString());
 			if(!v) {
 				set_error('ssn');
 				has_errors = true;

@@ -163,7 +163,7 @@ function order_new_page()
 			-->
 
 			<h2>PBS:</h2>
-			<input type="text" name="ssn" value="" placeholder="Personnummer" />
+			<input type="text" name="ssn" value="" placeholder="CPR / CVR" />
 			<div class="ui-grid-a">
 				<div class="ui-block-a">
 					<input type="text" name="reg" value="" placeholder="Reg. Nr." />
