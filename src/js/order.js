@@ -201,7 +201,7 @@ $(document).ready(function()
 
 		v = $('[name="knr"]').val();
 		if(!isEmpty(v)) {
-			v = isValidPreciseInt(v.toString(),10);
+			v = isValidRangeInt(v.toString(),6, 10);
 			if(!v) {
 				set_error('knr');
 				has_errors = true;

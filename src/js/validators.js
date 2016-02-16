@@ -47,6 +47,12 @@ function isValidPreciseInt(str,size) {
 	return isValid(str,regex);
 }
 
+function isValidRangeInt(str, min_size, max_size) {
+	var regex = new RegExp('^\\d{'+min_size.toString().concat(',', max_size)+'}$');
+	console.log(regex);
+	return isValid(str,regex);
+}
+
 /*
 
 
