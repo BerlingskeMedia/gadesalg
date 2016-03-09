@@ -54,12 +54,13 @@ function isValidRangeInt(str, min_size, max_size) {
 }
 
 function isValidSsn (str) {
-	if (str.length === 8) {
+	var ssn = str.replace('-', '');
+	if (ssn.length === 8) {
 		var cvr_check = "2765432";
-		return mod11(str, cvr_check);
-	} else if (str.length === 10) {
+		return mod11(ssn, cvr_check);
+	} else if (ssn.length === 10) {
 		var cpr_check = "432765432";
-		return mod11(str, cpr_check);
+		return mod11(ssn, cpr_check);
 	} else {
 		return false;
 	}
@@ -68,14 +69,23 @@ function isValidSsn (str) {
 
 // From http://kode.porten.dk/cpr_fix/
 function mod11 (value, check) {
-	var sum = 0;
+	var sum = 0,
+			check_digit = parseInt(value.charAt(value.length - 1), 10),
+			valid = false,
+			surplus = -1;
 
 	for(var i = 0; i < value.length - 1; i++) {
 		sum += parseInt(value.charAt(i), 10) * parseInt(check.charAt(i), 10);
 	}
 
-	var check_digit = 11 - sum % 11;
-	var valid = check_digit === parseInt(value.charAt(value.length - 1), 10);
+	surplus = sum % 11;
+
+	if (check_digit === 0) {
+		valid = check_digit === surplus;
+	} else {
+		valid = check_digit === 11 - surplus;
+	}
+
 	return valid;
 }
 
